@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!--Templating-->
+	<div>
+		<div>
+			<h1>Tags</h1>
+		</div>
+		<div>
+			<input type="text" placeholder="new tags" data-bind="value: tagToAdd, valueUpdate: 'afterkeydown', event: { keypress: addOnEnter }">
+			<button data-bind="click: addTag">+ Add</button>
+			<ul data-bind="foreach: tags">
+					<li data-bind="click: $parent.selecteTag">
+						<span data-bind="text: Name"></span>
+						<div>
+							<a href="#" class="edit">edit</a>
+							<a href="#" class="delete">delete</a>
+						</div>
+					</li>
+			</ul>
+		</div>
+	</div>
+	
+
+	<div id="tagDialog" data-bind="with: selectedTag">
+		Tag name: <input type="text" data-bind="value: Name">
+	</div>
+	<!--Collectoins-->
+	<!--
+	<button data-bind="click: addItem">add</button>
+	<button data-bind="click: removeItem">Remove</button>
+	<ul data-bind="template: {name: 'listTempl', foreach: list}">
+		
+	</ul>
+	-->
+	<!--Hello world-->
+
+   <!--
+	Name: <input type="text" data-bind="value: name, valueUpdate: 'afterkeydown'">
+	<input type="checkbox" data-bind="checked:nameVisible">
+	<p>
+		Hello <span data-bind="text: name, visible: nameVisible"></span>
+		<br/>
+		<span data-bind="text: displayName"></span>
+	</p>
+	<button data-bind="click: changeName">
+		Change Name
+	</button>
+	-->
+
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/html" id="listTempl">
+		<li data-bind="text: name"></li>
+	</script>
+</body>
+</html>
